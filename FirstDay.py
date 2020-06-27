@@ -10,9 +10,13 @@ df = pd.DataFrame({"工资": [10, 20, 30, 40],
 # A simple select the first
 df_head = df.head(1)
 
-# Add a colum （it must have the same len with other colum 
+# Add a colum （it must have the same len with other colum
 # expect with Series or single object which one will broadcast to whole line）
 df['New'] = 1
+
+# add one row
+newrow = df[1:2][:]
+print(pd.concat([df, newrow]))
 
 # delete the colum
 df.drop('New', axis=1, inplace=True)
@@ -35,5 +39,5 @@ print(df.head())
 
 #same method to deal with Date
 print(pd.to_datetime('2020-08-09'))
- 
+
 print(df['能力比'][1])
